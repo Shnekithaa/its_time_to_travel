@@ -19,6 +19,18 @@ Welcome to "It's Time to Travel", a dynamic travel blog platform crafted for ent
 - **Update Profile**: Edit your profile and create a personalized bio that reflects your travel philosophies and experiences.
 - **Gallery**: Browse through a gallery of travel story pictures uploaded by users, showcasing the beauty and diversity of destinations covered.
 
+## Technologies Used
+
+This project is built using the MERN stack, incorporating the following technologies:
+
+- **MongoDB**: A document-based database used to store user data and travel stories efficiently.
+- **Express.js**: A back-end web application framework for Node.js, designed for building web applications and APIs.
+- **React**: A JavaScript library for building user interfaces, allowing for a dynamic and responsive front-end.
+- **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine, used to run the server-side of the application.
+- **JWT (JSON Web Tokens)**: Utilized for secure user authentication and authorization throughout the application.
+- **bcrypt**: A robust hashing algorithm used for securely hashing and storing user passwords.
+- **Other Libraries and Tools**: Various other libraries and tools from NPM are used in conjunction with the main technologies, including React Router for front-end routing, Axios for making HTTP requests, and Mongoose for object data modeling (ODM) with MongoDB.
+
 ## Getting Started
 
 To dive into "It's Time to Travel", follow these steps:
