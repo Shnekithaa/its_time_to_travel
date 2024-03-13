@@ -26,7 +26,7 @@ To dive into "It's Time to Travel", follow these steps:
 1. **Clone the repository**
 
     ```sh
-    git clone https://github.com/yourusername/its-time-to-travel.git
+    git clone https://github.com/Shnekithaa/its_time_to_travel.git
     cd its-time-to-travel
     ```
 
@@ -39,7 +39,7 @@ To dive into "It's Time to Travel", follow these steps:
 3. **Launch the application**
 
     ```sh
-    npm start
+    npm run dev
     ```
 
     The application should now be up and running on [http://localhost:3000](http://localhost:3000).
