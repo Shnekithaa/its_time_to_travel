@@ -1,0 +1,32 @@
+.navbar{
+    background-color: #323230;
+    color: white;
+}
+.travel_blog_logo{
+    background-color: white;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin-right: 60px;
+}
+.nav-content{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Jacques Francois", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-content div{
+    margin-right: 150px;
+}
+.profile-icon{
+    font-size: 50px;
+    padding: 10px;
+
+}
+.search-icon{
+    font-size: 50px;
+    padding: 10px;
+}
