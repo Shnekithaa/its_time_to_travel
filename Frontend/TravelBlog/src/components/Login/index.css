@@ -1,10 +1,95 @@
-.logo{
-    height: 100px;
-    width: 100px;
+.logo {
+  height: 90px;
+  width: 90px;
+  margin-bottom: 11px;
 }
-.login-container{
-    display: flex;
+.login-container {
+  display: flex;
 }
-.login-img{
-    height: 100vh;
+.left-login-card {
+  width: 30vw;
+  height: 100vh;
+  margin: 25px 20px;
+}
+.right-login-card {
+  height: 100vh;
+  width: 70vw;
+}
+.forgot-text,
+.register-text {
+  color: #5138ee;
+  cursor: pointer;
+}
+.login-img {
+  width: 70vw;
+  height: 100vh;
+}
+.req-star {
+  color: red;
+}
+.input-box {
+  width: 400px;
+  height: 35px;
+  border-radius: 10px;
+  border-color: #d9d9d9;
+  border-style: solid;
+}
+.input-card {
+  margin-bottom: 15px;
+}
+.eye-icon {
+  font-size: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.forgot-text {
+  margin-left: 268px;
+  font-size: 13px;
+}
+.login-btn {
+  background-color: #5138ee;
+  color: white;
+  width: 400px;
+  border-width: 0;
+  border-radius: 11px;
+  padding: 10px 0;
+}
+.login-line {
+  background-color: #8d8ea7;
+  width: 38%;
+}
+.login-lines {
+  display: flex;
+  align-items: center;
+  color: #8d8ea7;
+  font-size: 10px;
+  margin-top: 10px;
+}
+.login-with-text {
+  margin: 10px;
+}
+.signup-btn {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 11px;
+  height: 45px;
+  border: 1px solid #d9d9d9;
+  box-shadow: 5px 5px 4px #d9d9d9;
+  margin: 9px 0;
+}
+.google-icon {
+  font-size: 25px;
+  margin-right: 5px;
+}
+.signup-text {
+  margin-top: 13px;
+}
+.account-text {
+  margin-left: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 10px;
 }
