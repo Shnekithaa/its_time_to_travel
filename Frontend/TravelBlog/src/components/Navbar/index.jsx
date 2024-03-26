@@ -11,27 +11,29 @@ export default class index extends Component {
     return (
       <div className="navbar">
         <div>
+          <Link to="/">
           <img
             src={travelblogLogo}
             alt="travel-logo"
             className="travel_blog_logo"
           />
+          </Link>
         </div>
         <div className="nav-content">
           <Link to="/">
-            <div>Home</div>
+            <div className="nav-name">Home</div>
           </Link>
           <Link to="/places">
-            <div>Places</div>
+            <div className="nav-name">Places</div>
           </Link>
           <Link to="/gallery">
-            <div>Gallery</div>
+            <div className="nav-name">Gallery</div>
           </Link>
           <Link to="/favourites">
-            <div>Favourites</div>
+            <div className="nav-name">Favourites</div>
           </Link>
           <Link to="/contact">
-            <div>Contact</div>
+            <div className="nav-name">Contact</div>
           </Link>
         </div>
         <div>
