@@ -24,7 +24,7 @@ export default class index extends Component {
             <div>
               <label>Password<span className='req-star'>*</span></label>
               <div>
-                <input type='text' className='input-box' />
+                <input type='password' className='input-box' />
                 <AiOutlineEyeInvisible className='eye-icon' />
               </div>
               <div>
