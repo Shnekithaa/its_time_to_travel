@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./index.css"
 
+import Navbar from "../Navbar"
+
 import shore_carousel from "../../assets/shore_carousel.avif"
 import flower_carousel_3 from "../../assets/flower_carousel_3.jpg"
 import mountain_carousel_1 from "../../assets/mountain_carousel_1.avif";
@@ -9,6 +11,7 @@ export default class index extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <div
           id="carouselExampleIndicators"
           class="carousel slide"
