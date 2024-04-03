@@ -1,0 +1,32 @@
+.gallery-title-box{
+    background-color: #FFEBD1;
+    border: 0;
+    color: #FFA403;
+    border-radius: 8px;
+    height: 50px;
+    text-align: center;
+    width: 40px;
+    margin: 8px;
+    padding: 12px;
+    font-weight: bold;
+}
+.gallery-title-holder{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.gallery-img-card{
+    border-radius: 15px;
+    background-color: #FFFFFD;
+    height: 250px;
+    width: 400px;
+    filter: drop-shadow(7px 7px 4px rgba(0, 0, 0, 40%));
+    margin: 30px 20px;
+    backdrop-filter: blur(40px);
+    text-align: center;
+    padding: 25px 0;
+}
+.gallery-img{
+    height: 200px;
+    width: 330px;
+}
