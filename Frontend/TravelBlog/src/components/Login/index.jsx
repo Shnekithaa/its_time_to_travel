@@ -1,13 +1,27 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import login_img from "../../assets/login_img.avif"
 import travelblogLogo from "../../assets/travelblogLogo.png"
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import "./index.css"
+import axios from 'axios';
 
-export default class index extends Component {
-  render() {
+const Index = () => {
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const navigate = useNavigate()
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      axios.post("http://localhost:3000/login", {email, password})
+      .then(res => {
+        console.log(res)
+        if(res.data === "Success"){
+          navigate("/")
+        }
+      })
+      .catch(err => console.log(err))
+    }
     return (
       <div className='login-container'>
         <div className='left-login-card'>
@@ -18,13 +32,13 @@ export default class index extends Component {
             <div className='input-card'>
               <label>Email<span className='req-star'>*</span></label>
               <div>
-                <input type='text' className='input-box' />
+                <input type='text' className='input-box' onChange={(e) => setEmail(e.target.value)} />
               </div>
             </div>
             <div>
               <label>Password<span className='req-star'>*</span></label>
               <div>
-                <input type='password' className='input-box' />
+                <input type='password' className='input-box' onChange={(e) => setPassword(e.target.value)} />
                 <AiOutlineEyeInvisible className='eye-icon' />
               </div>
               <div>
@@ -32,7 +46,7 @@ export default class index extends Component {
               </div>
             </div>
           </div>
-          <button className='login-btn'>Log in</button>
+          <button className='login-btn' onClick={handleSubmit}>Log in</button>
           <div className='login-lines'>
             <hr className='login-line' />
             <p className='login-with-text'>Or Login With</p>
@@ -52,4 +66,5 @@ export default class index extends Component {
       </div>
     );
   }
-}
+
+  export default Index
