@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute"
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Places from "./components/Places"
@@ -15,13 +16,13 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/places" element={<Places />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/favourites" element={<Favourites />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<ProtectedRoute element={Home} />} />
+          <Route path="/places" element={<ProtectedRoute element={Places} />} />
+          <Route path="/gallery" element={<ProtectedRoute element={Gallery} />} />
+          <Route path="/favourites" element={<ProtectedRoute element={Favourites} />} />
+          <Route path="/contact" element={<ProtectedRoute element={Contact} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   );
