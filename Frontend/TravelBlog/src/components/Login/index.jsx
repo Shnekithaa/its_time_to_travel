@@ -6,6 +6,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import "./index.css"
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 const Index = () => {
     const [email, setEmail] = useState()
@@ -16,7 +17,8 @@ const Index = () => {
       axios.post("http://localhost:3000/login", {email, password})
       .then(res => {
         console.log(res)
-        if(res.data === "Success"){
+        if(res.status){
+          Cookies.set("token", res.data.token, {expires: 30})
           navigate("/")
         }
       })
