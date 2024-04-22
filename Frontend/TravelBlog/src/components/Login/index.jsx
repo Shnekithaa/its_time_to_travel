@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import login_img from "../../assets/login_img.avif"
 import travelblogLogo from "../../assets/travelblogLogo.png"
@@ -7,6 +7,10 @@ import { FcGoogle } from "react-icons/fc";
 import "./index.css"
 import axios from 'axios';
 import Cookies from 'js-cookie'
+import {GoogleLogin} from 'react-google-login'
+
+
+const clientId = "404075190270-pfjnjp51ql5pbrsgae9hkrrdsto5kskd.apps.googleusercontent.com"
 
 const Index = () => {
     const [email, setEmail] = useState()
@@ -24,6 +28,15 @@ const Index = () => {
       })
       .catch(err => console.log(err))
     }
+    const onSuccess = (res) => {
+      Cookies.set("token", res.accessToken, {expires: 30})
+      navigate("/")
+      console.log("Login Success! Current user: ", res)
+    }
+    const onFailure = (res) => {
+      console.log("Login failed! res: ", res)
+    }
+    
     return (
       <div className='login-container'>
         <div className='left-login-card'>
@@ -54,12 +67,8 @@ const Index = () => {
             <p className='login-with-text'>Or Login With</p>
             <hr className='login-line' />
           </div>
-          <div>
-            <button className='signup-btn'>
-              <FcGoogle className='google-icon' />
-              <p className='signup-text'>Sign up with Google</p>
-            </button>
-            <p className='account-text'>Don't have an account? <span className='register-text'><Link to="/signup">Register here</Link></span></p>
+          <div className='g-login'>
+            <GoogleLogin clientId={clientId} buttonText='Login with Google' onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={'single_host_origin'} />
           </div>
         </div>
         <div className='right-login-card'>
