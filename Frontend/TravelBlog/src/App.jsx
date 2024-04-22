@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { gapi } from "gapi-script";
 import ProtectedRoute from "./components/ProtectedRoute"
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -12,7 +13,21 @@ import Login from "./components/Login"
 
 import "./App.css";
 
+const clientId = "404075190270-pfjnjp51ql5pbrsgae9hkrrdsto5kskd.apps.googleusercontent.com"
+
 const App = () => {
+
+  useEffect(() => {
+    function start(){
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      })
+    }
+    gapi.load('client:auth2', start)
+  }, [])
+
+
   return (
     <div>
       <Routes>
