@@ -15,6 +15,7 @@ const clientId = "404075190270-pfjnjp51ql5pbrsgae9hkrrdsto5kskd.apps.googleuserc
 const Index = () => {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [error,setError] = useState('')
     const navigate = useNavigate()
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -26,7 +27,13 @@ const Index = () => {
           navigate("/")
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        if(err.response && err.response.data.message){
+          setError(err.response.data.message)
+        }else{
+          setError("Something went wrong. Please try again later.")
+        }
+      })
     }
     const onSuccess = (res) => {
       Cookies.set("token", res.accessToken, {expires: 30})
@@ -47,13 +54,13 @@ const Index = () => {
             <div className='input-card'>
               <label>Email<span className='req-star'>*</span></label>
               <div>
-                <input type='text' className='input-box' onChange={(e) => setEmail(e.target.value)} />
+                <input type='text' className='input-box' onChange={(e) => {setEmail(e.target.value); setError('')}} />
               </div>
             </div>
             <div>
               <label>Password<span className='req-star'>*</span></label>
               <div>
-                <input type='password' className='input-box' onChange={(e) => setPassword(e.target.value)} />
+                <input type='password' className='input-box' onChange={(e) => {setPassword(e.target.value); setError('')}} />
                 <AiOutlineEyeInvisible className='eye-icon' />
               </div>
               <div>
@@ -61,6 +68,7 @@ const Index = () => {
               </div>
             </div>
           </div>
+          {error && <div className="login-err-msg">{error}</div>}
           <button className='login-btn' onClick={handleSubmit}>Log in</button>
           <div className='login-lines'>
             <hr className='login-line' />

@@ -12,6 +12,7 @@ const Index = () => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [error,setError] = useState('')
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -21,7 +22,13 @@ const Index = () => {
         console.log(res)
         navigate("/login")
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        if(err.response && err.response.data.message){
+          setError(err.response.data.message)
+        }else{
+          setError("Something went wrong. Please try again later.")
+        }
+      })
     }
 
     return (
@@ -37,7 +44,7 @@ const Index = () => {
                 Username<span className="req-star">*</span>
               </label>
               <div>
-                <input type="text" className="signup-input" onChange={(e) => setName(e.target.value)} />
+                <input type="text" className="signup-input" onChange={(e) => {setName(e.target.value); setError('')}} />
               </div>
             </div>
             <div>
@@ -45,7 +52,7 @@ const Index = () => {
                 Email<span className="req-star">*</span>
               </label>
               <div>
-                <input type="email" className="signup-input" onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" className="signup-input" onChange={(e) => {setEmail(e.target.value); setError('')}} />
               </div>
             </div>
             <div>
@@ -53,7 +60,7 @@ const Index = () => {
                 Password<span className="req-star">*</span>
               </label>
               <div className="password-input">
-                <input type="password" className="signup-input" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" className="signup-input" onChange={(e) => {setPassword(e.target.value); setError('')}} />
                 <span className="eye">
                   <AiOutlineEyeInvisible className="signup-eye-icon" />
                 </span>
@@ -63,6 +70,7 @@ const Index = () => {
               Create Account
             </button>
           </form>
+          {error && <div className="signup-err-msg">{error}</div>}
           <p className="have-account-text">
             Have an account?{" "}
             <Link to="/login">
