@@ -37,7 +37,11 @@ export default class index extends Component {
           </Link>
         </div>
         <div>
-          <CgProfile className="profile-icon" />
+          <Link to="/profile">
+            <>
+              <CgProfile className="profile-icon" />
+            </>
+          </Link>
           <FaSearch className="search-icon" />
         </div>
       </div>

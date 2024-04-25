@@ -24,6 +24,7 @@ const Index = () => {
         console.log(res)
         if(res.status){
           Cookies.set("token", res.data.token, {expires: 30})
+          Cookies.set("email", res.data.email, {expires: 30})
           navigate("/")
         }
       })
