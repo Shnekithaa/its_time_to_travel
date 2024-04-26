@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
+const multer = require("multer")
 const userModel = require('../models/User');
 const router = express.Router();
 
@@ -91,6 +92,24 @@ router.post("/profile", async(req, res) => {
         }
     }catch(err){
         res.status(500).json({message: "Error fetching user data", error: err})
+    }
+})
+
+
+const upload = multer()
+
+router.post("/upload", upload.single('file'), async (req, res) => {
+    console.log(req.body)
+    console.log(req.file)
+    // res.status(200).send(req.file)
+    const user = await userModel.findOne({email: req.body.email})
+    if(req.file){
+        user.imageUrl = req.file.buffer
+        console.log(user)
+        await user.save()
+        res.status(200).send(user)
+    }else{
+        res.status(500).json({message: "Error uploading image"})
     }
 })
 

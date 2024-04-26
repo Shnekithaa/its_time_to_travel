@@ -5,6 +5,7 @@ const userRoutes = require('./routes/userRoutes')
 const app = express()
 
 app.use(express.json())
+app.use('/Images', express.static('Public/Images'))
 app.use(cors())
 app.use('/', userRoutes)
 require("dotenv").config()
