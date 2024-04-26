@@ -26,5 +26,105 @@
     justify-content: space-around;
 }
 .profile-upload-icon{
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.profile-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-left: 45px;
+}
+.upload-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+input[type='file'] {
+    margin-bottom: 18px;
+    cursor: pointer;
+  }
+.profile-pic-text{
+    color: #FFA403;
+    max-width: 300px;
+    text-align: center;
+}
+.upload-btn{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: -50px;
+}
+.upload-btn :hover{
+    background-color: #0056b3;
+}
+.file{
+    font-style: italic;
+}
+.profile-input{
+    background-color: #EDF6FD;
+    border: none;
+    color: #83A3B0;
+    height: 45px;
+    width: 350px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 40px;
+    padding-bottom: 5px;
+}
+.input-pro-icon-1{
+    position: absolute;
+    right: 59%;
+    font-size: 20px;
+    bottom:69%;
+    color: #989898;
+}
+.input-pro-icon-2{
+    position: absolute;
+    right: 59%;
+    font-size: 20px;
+    bottom:59.5%;
+    color: #989898;
+}
+.input-pro-icon-3{
+    position: absolute;
+    right: 59%;
+    font-size: 20px;
+    bottom:50.5%;
+    color: #989898;
+}
+
+.form-card{
+    margin: 20px 0;
+}
+.profile-form{
+    margin-left: 100px;
+}
+.profile-input-textarea{
+    background-color: #EDF6FD;
+    border: none;
+    color: #83A3B0;
+    border-radius: 10px;
+    padding-top: 10px;
+    width: 350px;
+    padding-left: 15px;
+}
+.edit-icon{
+    font-size: 20px;
+    color: #989898;
+    cursor: pointer;
+}
+.boy-img{
+    height: 400px;
+    margin: 0 90px;
+}
+.girl-img{
+    height: 400px;
 }
