@@ -3,11 +3,15 @@ import Navbar from "../Navbar"
 import axios from "axios"
 import eiffel_tower from "../../assets/eiffel_tower.jpg"
 import { IoMdAddCircle } from "react-icons/io";
+import AddPlaceModal from "../AddPlaceModal"
 import "./index.css"
+
 const profileLettersArr = ["P", "L", "A", "C", "E", "S"];
 
 const index = () => {
   const [spots, setSpots] = useState([])
+  const [openAddPlaceModal, setOpenAddPlaceModal] = useState(false)
+
 
   useEffect(() => {
     axios.get("http://localhost:3000/places")
@@ -30,7 +34,8 @@ const index = () => {
               })
           }
         </div>
-        <IoMdAddCircle className='add-icon' />
+        <IoMdAddCircle className='add-icon' onClick={() => setOpenAddPlaceModal(true)} />
+        {openAddPlaceModal && <AddPlaceModal setOpenAddPlaceModal={setOpenAddPlaceModal} />}
       </div>
       <div className='places-holder'>
         {
