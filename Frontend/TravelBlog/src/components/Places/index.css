@@ -1,0 +1,56 @@
+.places-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-icon{
+    font-size: 35px;
+    position: absolute;
+    right: 70px;
+    top: 105px;
+}
+.spot-img-card{
+    border-radius: 15px;
+    background-color: #FFFFFD;
+    height: 250px;
+    width: 400px;
+    filter: drop-shadow(7px 7px 4px rgba(0, 0, 0, 40%));
+    margin: 30px 20px;
+    backdrop-filter: blur(40px);
+    text-align: center;
+    padding: 25px 0;
+    position: relative;
+    cursor: pointer;
+    
+}
+  
+  .spot-info {
+    background-image: linear-gradient(to left, rgba(255, 164, 3, 0.5), rgba(15, 183, 232, 0.5));
+    visibility: hidden;
+    position: absolute;
+    height: 250px;
+    width: 400px;
+    bottom: 0;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+.spot-img-card:hover .spot-info {
+    visibility: visible;
+    opacity: 1;
+    font-weight: bold;
+}
+.places-holder{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
