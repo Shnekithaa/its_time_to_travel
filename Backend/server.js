@@ -2,12 +2,14 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const userRoutes = require('./routes/userRoutes')
+const spotRoutes = require('./routes/spotRoutes')
 const app = express()
 
 app.use(express.json())
 app.use('/Images', express.static('Public/Images'))
 app.use(cors())
 app.use('/', userRoutes)
+app.use('/', spotRoutes)
 require("dotenv").config()
 
 
