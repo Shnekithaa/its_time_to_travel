@@ -1,26 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./index.css"
 import axios from 'axios';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const index = ({setOpenAddPlaceModal}) => {
+const index = ({setOpenEditPlaceModal, spotId}) => {
 
-    const [spot, setSpot] = useState()
-    const[location, setLocation]= useState()
+    const [spot, setSpot] = useState('')
+    const [location, setLocation] = useState('')
 
-    const handleAddBtn = (e) => {
+    useEffect(() => {
+        axios.post("http://localhost:3000/getPlace/" , {spotId})
+        .then(res => {
+            console.log(res)
+            setSpot(res.data.spot)
+            setLocation(res.data.location)
+        })
+        .catch(err => console.log(err))
+    }, [])
+
+    const handleUpdate = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/addPlace", {spot, location})
+        axios.put("http://localhost:3000/updatePlace", {spot, location, spotId})
         .then((res) => {
             console.log(res)
-            setOpenAddPlaceModal(false)
+            setOpenEditPlaceModal(false)
             window.location.reload()
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err)
+            console.log(err.response.data)
             toast.error(`${err.response.data}`, {
-                position: "top-right",
+                position: "bottom-center",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -38,13 +49,13 @@ const index = ({setOpenAddPlaceModal}) => {
         <ToastContainer />
       <div className='modal-container'>
         <div className='modal-title'>
-            <h1>Add a Place</h1>
+            <h1>Edit the Place</h1>
         </div>
         <div className='modal-body'>
             <form>
                 <div className='form-add-div'>
                     <label htmlFor='spot'>Spot</label>
-                    <input type='text' id='spot' required={true} onChange={(e) => setSpot(e.target.value)} value={spot} />
+                    <input type='text' id='spot' required onChange={(e) => setSpot(e.target.value)} value={spot} />
                 </div>
                 <div className='form-add-div'>
                     <label htmlFor='location'>Location</label>
@@ -53,8 +64,8 @@ const index = ({setOpenAddPlaceModal}) => {
             </form>
         </div>
         <div className='modal-footer'>
-            <button onClick={() => setOpenAddPlaceModal(false)} className='cancel-btn'>Cancel</button>
-            <button className='add-place-btn' onClick={handleAddBtn}>Add</button>
+            <button onClick={() => setOpenEditPlaceModal(false)} className='cancel-btn'>Cancel</button>
+            <button className='add-place-btn' onClick={handleUpdate}>Update</button>
         </div>
       </div>
     </div>
@@ -62,4 +73,3 @@ const index = ({setOpenAddPlaceModal}) => {
 }
 
 export default index;
-
