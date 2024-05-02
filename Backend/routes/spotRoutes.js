@@ -49,4 +49,11 @@ router.put("/updatePlace", (req, res) => {
     .catch(err => res.json(err))
 })
 
+router.delete("/deleteSpot", (req, res) => {
+    const {spotId} = req.body
+    placesModel.findByIdAndDelete({_id: spotId})
+    .then(res => res.json(res))
+    .catch(err => res.json(err))
+})
+
 module.exports = router
