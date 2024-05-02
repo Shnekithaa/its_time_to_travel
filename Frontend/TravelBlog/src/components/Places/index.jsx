@@ -20,6 +20,12 @@ const index = () => {
     setEditSpotId(id);
   };
 
+  const handleDeletePlace = (id) => {
+    axios.delete("http://localhost:3000/deleteSpot", {data: {spotId: id}})
+    .then(() => window.location.reload())
+    .catch((err) => console.log(err))
+  }
+
   const handleCloseEditModal = () => {
     setEditSpotId(null);
   };
@@ -63,7 +69,7 @@ const index = () => {
                 className="edit-place-icon"
                 onClick={() => handleEditClick(eachSpot._id)}
               />
-              <MdDeleteOutline className="delete-place-icon" />
+              <MdDeleteOutline className="delete-place-icon" onClick={() => handleDeletePlace(eachSpot._id)} />
             </div>
             {editSpotId === eachSpot._id && (
               <UpdatePlaceModal
